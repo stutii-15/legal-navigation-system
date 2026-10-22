@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Lawyer Consultation</title>
+
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <header class="topbar">
+
+    <a
+      href="dashboard.html"
+      class="logo"
+    >
+
+      <span class="logo-mark">
+        ⚖
+      </span>
+
+      <span>
+        Legal Navigation System
+      </span>
+
+    </a>
+
+
+    <nav class="navbar">
+
+      <a href="documents.html">
+        Legal Document Procedures
+      </a>
+
+      <a href="queries.html">
+        Case Related Queries
+      </a>
+
+      <a
+        href="lawyers.html"
+        class="active"
+      >
+        Lawyer Consultation
+      </a>
+
+      <a href="journey.html">
+        My Legal Journey
+      </a>
+
+    </nav>
+
+
+    
+<div class="top-actions settings-menu">
+
+  <button
+    type="button"
+    class="settings-menu-button"
+    id="settingsMenuButton"
+    aria-expanded="false"
+    aria-controls="settingsDropdown"
+  >
+    ⚙ Settings
+    <span aria-hidden="true">▾</span>
+  </button>
+
+  <div
+    class="settings-dropdown"
+    id="settingsDropdown"
+    hidden
+  >
+    <div class="settings-item">
+      <label for="headerLanguage">Language</label>
+      <select id="headerLanguage">
+        <option value="English">English</option>
+        <option value="Hindi">हिंदी</option>
+      </select>
+    </div>
+
+    <button
+      type="button"
+      class="settings-action"
+      id="headerThemeButton"
+    >
+      🌙 Dark Mode
+    </button>
+
+    <button
+      type="button"
+      class="settings-action logout-action"
+      id="headerLogoutButton"
+    >
+      ↪ Log out
+    </button>
+  </div>
+
+</div>
+
+
+  </header>
+
+
+  <main class="page-container">
+
+
+    <section class="hero">
+
+      <h1>
+        Lawyer Consultation
+      </h1>
+
+      <p>
+        Select an area of law and request
+        a consultation with a legal professional.
+      </p>
+
+    </section>
+
+
+    <section class="card-grid">
+
+
+      <article class="option-card">
+
+        <div
+          class="lawyer-avatar lawyer-avatar-female"
+          role="img"
+          aria-label="Animated female lawyer profile"
+        >
+          👩‍⚖️
+        </div>
+
+        <h3>
+          Adv. Asha Patil
+        </h3>
+
+        <p class="lawyer-meta">
+          Property &amp; Land Law · Pune · 9 years' experience
+        </p>
+
+        <p class="lawyer-fee">
+          Consultation fee: ₹750 / 30 minutes
+        </p>
+
+        <button
+          class="small-btn"
+          data-consult-lawyer
+          data-lawyer-name="Adv. Asha Patil"
+          data-lawyer-fee="₹750 / 30 minutes"
+        >
+          Book consultation
+        </button>
+
+      </article>
+
+
+      <article class="option-card">
+
+        <div
+          class="lawyer-avatar lawyer-avatar-male"
+          role="img"
+          aria-label="Animated male lawyer profile"
+        >
+          👨‍⚖️
+        </div>
+
+        <h3>
+          Adv. Rohan Deshmukh
+        </h3>
+
+        <p class="lawyer-meta">
+          Family Law · Mumbai · 7 years' experience
+        </p>
+
+        <p class="lawyer-fee">
+          Consultation fee: ₹900 / 30 minutes
+        </p>
+
+        <button
+          class="small-btn"
+          data-consult-lawyer
+          data-lawyer-name="Adv. Rohan Deshmukh"
+          data-lawyer-fee="₹900 / 30 minutes"
+        >
+          Book consultation
+        </button>
+
+      </article>
+
+
+      <article class="option-card">
+
+        <div
+          class="lawyer-avatar lawyer-avatar-female"
+          role="img"
+          aria-label="Animated female lawyer profile"
+        >
+          👩‍⚖️
+        </div>
+
+        <h3>
+          Adv. Neha Kulkarni
+        </h3>
+
+        <p class="lawyer-meta">
+          Employment Law · Nagpur · 6 years' experience
+        </p>
+
+        <p class="lawyer-fee">
+          Consultation fee: ₹700 / 30 minutes
+        </p>
+
+        <button
+          class="small-btn"
+          data-consult-lawyer
+          data-lawyer-name="Adv. Neha Kulkarni"
+          data-lawyer-fee="₹700 / 30 minutes"
+        >
+          Book consultation
+        </button>
+
+      </article>
+
+
+      <article class="option-card">
+
+        <div
+          class="lawyer-avatar lawyer-avatar-male"
+          role="img"
+          aria-label="Animated male lawyer profile"
+        >
+          👨‍⚖️
+        </div>
+
+        <h3>
+          Adv. Vikram Jadhav
+        </h3>
+
+        <p class="lawyer-meta">
+          Consumer Matters · Nashik · 8 years' experience
+        </p>
+
+        <p class="lawyer-fee">
+          Consultation fee: ₹650 / 30 minutes
+        </p>
+
+        <button
+          class="small-btn"
+          data-consult-lawyer
+          data-lawyer-name="Adv. Vikram Jadhav"
+          data-lawyer-fee="₹650 / 30 minutes"
+        >
+          Book consultation
+        </button>
+
+      </article>
+
+
+    </section>
+
+
+    <section class="panel">
+
+      <h2>
+        Booking information
+      </h2>
+
+      <p class="muted">
+        Choose a lawyer and select Book consultation to save your request in My Legal Journey.
+        These profiles, fees, and bookings are demo information; confirm a lawyer's credentials,
+        availability, and final fee before engaging their services.
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <!-- CHATBOT -->
+
+  <button
+    class="chatbot-toggle"
+    id="chatbotToggle"
+  >
+    💬
+  </button>
+
+
+  <section
+    class="chatbot-window"
+    id="chatbotWindow"
+  >
+
+    <div class="chat-header">
+
+      <strong>
+        AI Legal Assistant
+      </strong>
+
+      <button id="chatbotClose">
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      class="chat-messages"
+      id="chatMessages"
+    >
+
+      <div class="message bot">
+
+        I can help you identify the
+        general legal category of your issue.
+
+      </div>
+
+    </div>
+
+
+    <div class="chat-input">
+
+      <input
+        id="chatInput"
+        placeholder="Ask a legal question..."
+      >
+
+      <button
+        class="primary-btn"
+        id="chatSend"
+      >
+        Send
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  <script src="language.js"></script>
+
+</body>
+
+</html>

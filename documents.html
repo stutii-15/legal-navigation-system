@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Legal Documents</title>
+
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- HEADER -->
+
+  <header class="topbar">
+
+    <a
+      href="dashboard.html"
+      class="logo"
+    >
+
+      <span class="logo-mark">
+        ⚖
+      </span>
+
+      <span>
+        Legal Navigation System
+      </span>
+
+    </a>
+
+
+    <nav class="navbar">
+
+      <a
+        href="documents.html"
+        class="active"
+      >
+        Legal Document Procedures
+      </a>
+
+      <a href="queries.html">
+        Case Related Queries
+      </a>
+
+      <a href="lawyers.html">
+        Lawyer Consultation
+      </a>
+
+      <a href="journey.html">
+        My Legal Journey
+      </a>
+
+    </nav>
+
+
+    
+<div class="top-actions settings-menu">
+
+  <button
+    type="button"
+    class="settings-menu-button"
+    id="settingsMenuButton"
+    aria-expanded="false"
+    aria-controls="settingsDropdown"
+  >
+    ⚙ Settings
+    <span aria-hidden="true">▾</span>
+  </button>
+
+  <div
+    class="settings-dropdown"
+    id="settingsDropdown"
+    hidden
+  >
+    <div class="settings-item">
+      <label for="headerLanguage">Language</label>
+      <select id="headerLanguage">
+        <option value="English">English</option>
+        <option value="Hindi">हिंदी</option>
+      </select>
+    </div>
+
+    <button
+      type="button"
+      class="settings-action"
+      id="headerThemeButton"
+    >
+      🌙 Dark Mode
+    </button>
+
+    <button
+      type="button"
+      class="settings-action logout-action"
+      id="headerLogoutButton"
+    >
+      ↪ Log out
+    </button>
+  </div>
+
+</div>
+
+
+  </header>
+
+
+  <main class="page-container">
+
+
+    <section class="hero">
+
+      <h1>
+        Legal Documents Procedure
+      </h1>
+
+      <p>
+        Explore general document guidance.
+        Requirements may vary depending on
+        the authority, facts, and current law.
+      </p>
+
+    </section>
+
+
+    <section class="panel">
+
+      <h2>
+        Common procedures
+      </h2>
+
+
+      <!-- FIR -->
+
+      <div class="list-item">
+
+        <div>
+
+          <h3>
+            Police complaint / FIR
+          </h3>
+
+          <p>
+            Understand basic information to prepare
+            before approaching police.
+          </p>
+
+        </div>
+
+        <button
+          class="small-btn"
+          data-document="Police complaint / FIR"
+        >
+          View guide
+        </button>
+
+      </div>
+
+
+      <!-- CONSUMER -->
+
+      <div class="list-item">
+
+        <div>
+
+          <h3>
+            Consumer complaint
+          </h3>
+
+          <p>
+            Organize invoices, warranty records,
+            payment proof, and communication.
+          </p>
+
+        </div>
+
+        <button
+          class="small-btn"
+          data-document="Consumer complaint"
+        >
+          View guide
+        </button>
+
+      </div>
+
+
+      <!-- RENTAL -->
+
+      <div class="list-item">
+
+        <div>
+
+          <h3>
+            Rental agreement
+          </h3>
+
+          <p>
+            Review the main terms that should
+            be written in a rental agreement.
+          </p>
+
+        </div>
+
+        <button
+          class="small-btn"
+          data-document="Rental agreement"
+        >
+          View guide
+        </button>
+
+      </div>
+
+
+      <!-- LEGAL AID -->
+
+      <div class="list-item">
+
+        <div>
+
+          <h3>
+            Legal-aid application
+          </h3>
+
+          <p>
+            Find general information about contacting
+            the appropriate legal-services authority.
+          </p>
+
+        </div>
+
+        <button
+          class="small-btn"
+          data-document="Legal-aid application"
+        >
+          View guide
+        </button>
+
+      </div>
+
+
+      <!-- BIRTH CERTIFICATE -->
+
+      <div class="list-item">
+
+        <div>
+
+          <h3>
+            Birth certificate
+          </h3>
+
+          <p>
+            Understand general information about
+            birth registration and obtaining a certificate.
+          </p>
+
+        </div>
+
+        <button
+          class="small-btn"
+          data-document="Birth certificate"
+        >
+          View guide
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- CHATBOT -->
+
+  <button
+    class="chatbot-toggle"
+    id="chatbotToggle"
+    title="Open legal assistant"
+  >
+    💬
+  </button>
+
+
+  <section
+    class="chatbot-window"
+    id="chatbotWindow"
+  >
+
+    <div class="chat-header">
+
+      <strong>
+        AI Legal Assistant
+      </strong>
+
+      <button id="chatbotClose">
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      class="chat-messages"
+      id="chatMessages"
+    >
+
+      <div class="message bot">
+
+        Ask me about legal documents
+        or procedures.
+
+      </div>
+
+    </div>
+
+
+    <div class="chat-input">
+
+      <input
+        id="chatInput"
+        placeholder="Ask a legal question..."
+      >
+
+      <button
+        class="primary-btn"
+        id="chatSend"
+      >
+        Send
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  <script src="language.js"></script>
+
+</body>
+
+</html>

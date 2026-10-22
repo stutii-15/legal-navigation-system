@@ -1,0 +1,493 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Case-Related Queries | Legal Navigation System</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- TOP NAVBAR -->
+  <header class="topbar">
+
+    <a href="dashboard.html" class="logo">
+      <span class="logo-mark">⚖</span>
+      <span>Legal Navigation System</span>
+    </a>
+
+    <nav class="navbar">
+      <a href="documents.html">Legal Document Procedures</a>
+      <a href="queries.html" class="active">Case Related Queries</a>
+      <a href="lawyers.html">Lawyer Consultation</a>
+      <a href="journey.html">My Legal Journey</a>
+    </nav>
+
+    <!-- SETTINGS DROPDOWN -->
+    <div class="top-actions settings-menu">
+
+      <button
+        type="button"
+        class="settings-menu-button"
+        id="settingsMenuButton"
+        aria-expanded="false"
+        aria-controls="settingsDropdown">
+        ⚙ Settings <span aria-hidden="true">▾</span>
+      </button>
+
+      <div class="settings-dropdown" id="settingsDropdown" hidden>
+
+        <div class="settings-item">
+          <label for="headerLanguage">Language</label>
+          <select id="headerLanguage">
+            <option value="English">English</option>
+            <option value="Hindi">हिंदी</option>
+          </select>
+        </div>
+
+        <button
+          type="button"
+          class="settings-action"
+          id="headerThemeButton">
+          🌙 Dark Mode
+        </button>
+
+        <button
+          type="button"
+          class="settings-action logout-action"
+          id="headerLogoutButton">
+          ↪ Log out
+        </button>
+
+      </div>
+    </div>
+
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="page-container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Case-Related Queries</h1>
+      <p>
+        Get general legal information and guidance
+        for common legal issues.
+      </p>
+    </section>
+
+    <!-- LEGAL CATEGORIES -->
+    <section class="panel">
+
+      <h2>What type of legal help do you need?</h2>
+
+      <p class="muted">
+        Select a category to open its questions on a separate page.
+      </p>
+
+      <div class="legal-category-grid" id="legalCategoryGrid">
+
+        <button
+          type="button"
+          class="legal-category-card"
+          data-category="criminal">
+
+          <span class="category-icon">⚖️</span>
+          <strong>Criminal Cases</strong>
+          <span>
+            FIR, arrest, bail, police complaints
+            and criminal case procedures.
+          </span>
+        </button>
+
+        <button
+          type="button"
+          class="legal-category-card"
+          data-category="civil">
+
+          <span class="category-icon">🏛️</span>
+          <strong>Civil Cases</strong>
+          <span>
+            Property disputes, money recovery,
+            contracts and civil matters.
+          </span>
+        </button>
+
+        <button
+          type="button"
+          class="legal-category-card"
+          data-category="family">
+
+          <span class="category-icon">👨‍👩‍👧</span>
+          <strong>Divorce / Family Cases</strong>
+          <span>
+            Divorce, maintenance, custody and
+            family-related legal matters.
+          </span>
+        </button>
+
+        <button
+          type="button"
+          class="legal-category-card"
+          data-category="common">
+
+          <span class="category-icon">💡</span>
+          <strong>Common Case Suggestions</strong>
+          <span>
+            Find guidance when you are unsure
+            what type of legal issue you have.
+          </span>
+        </button>
+
+        <button
+          type="button"
+          class="legal-category-card"
+          data-category="rights">
+
+          <span class="category-icon">🛡️</span>
+          <strong>Legal Rights &amp; Remedies</strong>
+          <span>
+            Learn about legal rights, remedies
+            and available assistance.
+          </span>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- SEARCH LEGAL QUESTIONS -->
+    <section class="panel">
+
+      <h2>Find Legal Information</h2>
+
+      <p class="muted">
+        You can also search for a legal question directly.
+      </p>
+
+      <label for="legalQuestion">Search your question</label>
+
+      <input
+        type="text"
+        id="legalQuestion"
+        placeholder="Example: What is an FIR?"
+        autocomplete="off">
+
+      <div
+        id="questionSuggestions"
+        class="question-suggestions">
+      </div>
+
+      <button
+        type="button"
+        class="primary-btn"
+        id="getLegalInfo">
+        Get Legal Information
+      </button>
+
+    </section>
+
+    <!-- ANSWER SECTION -->
+    <section
+      class="panel legal-answer-panel"
+      id="legalAnswerPanel"
+      style="display: none;">
+
+      <h2>Legal Information</h2>
+
+      <div class="legal-question-display">
+        <strong>Question:</strong>
+        <p id="answerQuestion">-</p>
+      </div>
+
+      <div class="legal-answer">
+        <strong>Answer:</strong>
+        <p id="answerText">-</p>
+      </div>
+
+      <div class="legal-source">
+        <strong>Relevant Law / Source:</strong>
+        <p id="answerSource">-</p>
+      </div>
+
+      <div class="legal-answer-actions">
+
+        <button
+          type="button"
+          class="primary-btn"
+          id="saveLegalInfo">
+          Save to My Legal Journey
+        </button>
+
+        <a href="lawyers.html" class="secondary-btn">
+          Consult a Lawyer
+        </a>
+
+      </div>
+    </section>
+
+    <!-- IMPORTANT NOTICE -->
+    <section class="panel">
+
+      <h2>Important Information</h2>
+
+      <p class="muted">
+        This information is provided for general educational
+        purposes and does not replace advice from a qualified
+        lawyer. Legal outcomes depend on the facts of each case,
+        applicable laws and court procedures.
+      </p>
+
+      <p class="muted">
+        Avoid entering unnecessary sensitive personal information.
+      </p>
+
+    </section>
+
+  </main>
+
+  <!-- CHATBOT BUTTON -->
+  <button
+    class="chatbot-toggle"
+    id="chatbotToggle"
+    type="button"
+    aria-label="Open Legal Help">
+    💬
+  </button>
+
+  <!-- CHATBOT WINDOW -->
+  <section class="chatbot-window" id="chatbotWindow">
+
+    <div class="chat-header">
+      <strong>AI Legal Assistant</strong>
+      <button type="button" id="chatbotClose" aria-label="Close chat">
+        ×
+      </button>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+      <div class="message bot">
+        I can help you find general information
+        from the approved legal knowledge base.
+      </div>
+    </div>
+
+    <div class="chat-input">
+      <input
+        id="chatInput"
+        type="text"
+        placeholder="Ask a legal question...">
+
+      <button
+        class="primary-btn"
+        type="button"
+        id="chatSend">
+        Send
+      </button>
+    </div>
+
+  </section>
+
+  <!-- EXISTING PROJECT SCRIPTS -->
+  <script src="data.js"></script>
+  <script src="legal-knowledge.js"></script>
+  <script src="app.js"></script>
+  <script src="language.js"></script>
+
+  <!-- CATEGORY NAVIGATION AND SETTINGS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      /* CATEGORY REDIRECTION */
+
+      const categoryGrid =
+        document.getElementById("legalCategoryGrid");
+
+      if (categoryGrid) {
+        categoryGrid.addEventListener("click", function (event) {
+
+          const button = event.target.closest(
+            ".legal-category-card"
+          );
+
+          if (!button || !categoryGrid.contains(button)) {
+            return;
+          }
+
+          const category = button.dataset.category;
+
+          const validCategories = [
+            "criminal",
+            "civil",
+            "family",
+            "common",
+            "rights"
+          ];
+
+          if (!validCategories.includes(category)) {
+            return;
+          }
+
+          window.location.href =
+            "category-questions.html?category=" +
+            encodeURIComponent(category);
+
+        });
+      }
+
+      /* SETTINGS DROPDOWN */
+
+      const settingsButton =
+        document.getElementById("settingsMenuButton");
+
+      const settingsDropdown =
+        document.getElementById("settingsDropdown");
+
+      if (settingsButton && settingsDropdown) {
+
+        settingsButton.addEventListener("click", function (event) {
+          event.stopPropagation();
+
+          const opening = settingsDropdown.hidden;
+
+          settingsDropdown.hidden = !opening;
+
+          settingsButton.setAttribute(
+            "aria-expanded",
+            String(opening)
+          );
+        });
+
+        document.addEventListener("click", function (event) {
+          if (!event.target.closest(".settings-menu")) {
+            settingsDropdown.hidden = true;
+
+            settingsButton.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+          }
+        });
+      }
+
+      /* INITIALIZE LANGUAGE SELECTION */
+
+      const languageSelect =
+        document.getElementById("headerLanguage");
+
+      if (languageSelect) {
+
+        let savedUser = {};
+
+        try {
+          savedUser = JSON.parse(
+            localStorage.getItem("legalUser") || "{}"
+          );
+        } catch (error) {
+          savedUser = {};
+        }
+
+        languageSelect.value =
+          savedUser.language === "Hindi" ? "Hindi" : "English";
+
+        languageSelect.addEventListener("change", function () {
+
+          let user = {};
+
+          try {
+            user = JSON.parse(
+              localStorage.getItem("legalUser") || "{}"
+            );
+          } catch (error) {
+            user = {};
+          }
+
+          user.language = languageSelect.value;
+
+          localStorage.setItem(
+            "legalUser",
+            JSON.stringify(user)
+          );
+
+          const translateSelect =
+            document.querySelector(".goog-te-combo");
+
+          if (translateSelect) {
+
+            translateSelect.value =
+              languageSelect.value === "Hindi" ? "hi" : "en";
+
+            translateSelect.dispatchEvent(
+              new Event("change", { bubbles: true })
+            );
+
+          } else {
+            window.location.reload();
+          }
+
+        });
+      }
+
+      /* THEME BUTTON */
+
+      const themeButton =
+        document.getElementById("headerThemeButton");
+
+      function updateThemeLabel() {
+        if (!themeButton) return;
+
+        themeButton.textContent =
+          document.body.classList.contains("dark-mode")
+            ? "☀️ Light Mode"
+            : "🌙 Dark Mode";
+      }
+
+      if (themeButton) {
+
+        updateThemeLabel();
+
+        themeButton.addEventListener("click", function () {
+
+          if (typeof toggleTheme === "function") {
+            toggleTheme();
+          } else {
+            document.body.classList.toggle("dark-mode");
+
+            localStorage.setItem(
+              "theme",
+              document.body.classList.contains("dark-mode")
+                ? "dark"
+                : "light"
+            );
+          }
+
+          updateThemeLabel();
+        });
+      }
+
+      /* LOGOUT */
+
+      const logoutButton =
+        document.getElementById("headerLogoutButton");
+
+      if (logoutButton) {
+        logoutButton.addEventListener("click", function () {
+
+          if (typeof logout === "function") {
+            logout();
+          } else {
+            localStorage.removeItem("loggedIn");
+            window.location.href = "index.html";
+          }
+
+        });
+      }
+
+    });
+  </script>
+
+</body>
+</html>

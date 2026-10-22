@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legal Questions | Legal Navigation System</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .question-page-header {
+      margin-bottom: 24px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .question-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .question-card {
+      width: 100%;
+      padding: 17px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      text-align: left;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .question-card:hover,
+    .question-card:focus-visible {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .question-card .arrow {
+      color: var(--primary);
+      font-size: 20px;
+    }
+
+    .answer-box {
+      margin-top: 24px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .answer-box[hidden] {
+      display: none;
+    }
+
+    .answer-box h2 {
+      margin-top: 0;
+    }
+
+    .answer-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .question-card {
+        padding: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <a href="dashboard.html" class="logo">
+      <span class="logo-mark">⚖</span>
+      <span>Legal Navigation System</span>
+    </a>
+
+    <nav class="navbar">
+      <a href="documents.html">Legal Document Procedures</a>
+      <a href="queries.html" class="active">Case Related Queries</a>
+      <a href="lawyers.html">Lawyer Consultation</a>
+      <a href="journey.html">My Legal Journey</a>
+    </nav>
+
+    <div class="top-actions">
+      <button class="icon-btn" data-theme-toggle
+        title="Change Theme">☾</button>
+      <button class="icon-btn" data-logout
+        title="Log out">↪</button>
+    </div>
+  </header>
+
+  <main class="page-container">
+    <section class="hero">
+      <h1 id="categoryTitle">Legal Questions</h1>
+      <p id="categoryDescription">
+        Select a question to view its legal information.
+      </p>
+    </section>
+
+    <section class="panel">
+      <a href="queries.html" class="back-link">
+        ← Back to Legal Categories
+      </a>
+
+      <h2>Questions in this category</h2>
+      <p class="muted">
+        Select any question to read its answer.
+      </p>
+
+      <input
+        id="questionSearch"
+        type="search"
+        placeholder="Search questions..."
+        autocomplete="off"
+      >
+
+      <div id="questionList" class="question-list"></div>
+
+      <p id="emptyMessage" class="muted" hidden>
+        No questions match your search.
+      </p>
+    </section>
+
+    <section class="answer-box" id="answerBox" hidden>
+      <h2>Legal Information</h2>
+
+      <h3 id="answerQuestion"></h3>
+
+      <p><strong>Answer</strong></p>
+      <p id="answerText"></p>
+
+      <p><strong>Relevant Law / Source</strong></p>
+      <p id="answerSource"></p>
+
+      <div class="answer-actions">
+        <button class="primary-btn" id="saveAnswer">
+          Save to My Legal Journey
+        </button>
+
+        <a href="lawyers.html" class="secondary-btn">
+          Consult a Lawyer
+        </a>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h3>Important Information</h3>
+      <p class="muted">
+        This information is for general educational purposes
+        and does not replace advice from a qualified lawyer.
+        The appropriate legal procedure depends on the facts
+        and applicable law.
+      </p>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="legal-knowledge.js"></script>
+  <script src="app.js"></script>
+  <script src="language.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const categories = {
+        criminal: {
+          title: "Criminal Cases",
+          description: "FIR, police complaints, arrest, bail and criminal procedures."
+        },
+        civil: {
+          title: "Civil Cases",
+          description: "Property disputes, contracts, money recovery and civil matters."
+        },
+        family: {
+          title: "Divorce / Family Cases",
+          description: "Divorce, maintenance, custody and family-related legal matters."
+        },
+        common: {
+          title: "Common Case Suggestions",
+          description: "Explore frequently asked questions about common legal issues."
+        },
+        rights: {
+          title: "Legal Rights & Remedies",
+          description: "Learn about legal rights, remedies and available assistance."
+        }
+      };
+
+      const params = new URLSearchParams(location.search);
+      const categoryKey = params.get("category");
+      const category = categories[categoryKey];
+
+      const title = document.getElementById("categoryTitle");
+      const description = document.getElementById("categoryDescription");
+      const list = document.getElementById("questionList");
+      const search = document.getElementById("questionSearch");
+      const emptyMessage = document.getElementById("emptyMessage");
+      const answerBox = document.getElementById("answerBox");
+
+      let selectedQuestion = null;
+
+      if (!category || typeof legalKnowledge === "undefined") {
+        title.textContent = "Category unavailable";
+        description.textContent =
+          "Please return to the category page and select a valid category.";
+        search.disabled = true;
+        return;
+      }
+
+      title.textContent = category.title;
+      description.textContent = category.description;
+      document.title = category.title + " | Legal Navigation System";
+
+      const questions = legalKnowledge[categoryKey] || [];
+
+      function showQuestions() {
+        const term = search.value.trim().toLowerCase();
+        list.replaceChildren();
+
+        const filtered = questions.filter(item =>
+          item.question.toLowerCase().includes(term) ||
+          (item.keywords || []).some(keyword =>
+            keyword.toLowerCase().includes(term)
+          )
+        );
+
+        emptyMessage.hidden = filtered.length > 0;
+
+        filtered.forEach(item => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "question-card";
+
+          const questionText = document.createElement("span");
+          questionText.textContent = item.question;
+
+          const arrow = document.createElement("span");
+          arrow.className = "arrow";
+          arrow.textContent = "›";
+          arrow.setAttribute("aria-hidden", "true");
+
+          button.append(questionText, arrow);
+
+          button.addEventListener("click", () => {
+            selectedQuestion = item;
+
+            document.getElementById("answerQuestion").textContent =
+              item.question;
+            document.getElementById("answerText").textContent =
+              item.answer;
+            document.getElementById("answerSource").textContent =
+              item.source || "Approved legal information base";
+
+            answerBox.hidden = false;
+            answerBox.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
+          });
+
+          list.appendChild(button);
+        });
+      }
+
+      search.addEventListener("input", showQuestions);
+
+      document.getElementById("saveAnswer").addEventListener("click", () => {
+        if (!selectedQuestion) return;
+
+        let user = {};
+
+        try {
+          user = JSON.parse(localStorage.getItem("legalUser") || "{}");
+        } catch (error) {
+          alert("Could not read your saved user profile.");
+          return;
+        }
+
+        user.history = user.history || [];
+
+        const alreadySaved = user.history.some(
+          item => item.title === selectedQuestion.question
+        );
+
+        if (!alreadySaved) {
+          user.history.unshift({
+            title: selectedQuestion.question,
+            description: selectedQuestion.answer,
+            date: new Date().toLocaleDateString()
+          });
+
+          user.caseProgress = Math.min(
+            (user.caseProgress || 0) + 5, 100
+          );
+
+          localStorage.setItem("legalUser", JSON.stringify(user));
+        }
+
+        alert(alreadySaved
+          ? "This question is already saved in My Legal Journey."
+          : "Question saved to My Legal Journey.");
+      });
+
+      showQuestions();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Legal Navigation System - Login</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body class="auth-body">
+
+
+  <!-- =========================================================
+       MAIN AUTH CONTAINER
+  ========================================================== -->
+
+  <main class="auth-container">
+
+
+    <!-- =========================================================
+         LEFT BRAND SECTION
+    ========================================================== -->
+
+    <section class="auth-brand">
+
+      <div class="brand-icon">
+        ⚖
+      </div>
+
+      <h1>
+        Legal Navigation System
+      </h1>
+
+      <p>
+        Understand legal procedures, find assistance,
+        and track your legal journey.
+      </p>
+
+
+      <div class="brand-points">
+
+        <span>
+          ✓ Simplified legal information
+        </span>
+
+        <span>
+          ✓ Lawyer consultation support
+        </span>
+
+        <span>
+          ✓ Personalized case tracking
+        </span>
+
+        <span>
+          ✓ English and Hindi support
+        </span>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         RIGHT AUTH CARD
+    ========================================================== -->
+
+    <section class="auth-card">
+
+
+      <!-- =======================================================
+           STEP INDICATOR
+      ======================================================== -->
+
+      <div class="step-indicator">
+
+        <span
+          class="active"
+          id="stepOneIndicator"
+        >
+          1
+        </span>
+
+        <i></i>
+
+        <span id="stepTwoIndicator">
+          2
+        </span>
+
+        <i></i>
+
+        <span id="stepThreeIndicator">
+          3
+        </span>
+
+      </div>
+
+
+
+      <!-- =======================================================
+           LOGIN FORM
+      ======================================================== -->
+
+      <form
+        id="loginForm"
+        class="auth-step active-step"
+      >
+
+        <h2>
+          Welcome back
+        </h2>
+
+        <p class="muted">
+          Login to access your legal dashboard.
+        </p>
+
+
+        <!-- USERNAME / PHONE -->
+
+        <label for="loginId">
+          Username or registered mobile number
+        </label>
+
+        <input
+          type="text"
+          id="loginId"
+          placeholder="Enter your username"
+          autocomplete="username"
+          required
+        >
+
+
+        <label for="loginMobile">
+          Registered mobile number
+        </label>
+
+        <input
+          type="tel"
+          id="loginMobile"
+          placeholder="Enter your 10-digit mobile number"
+          autocomplete="tel"
+          inputmode="numeric"
+          pattern="[6-9][0-9]{9}"
+          required
+        >
+
+
+        <!-- PASSWORD -->
+
+        <label for="password">
+          Password
+        </label>
+
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter password"
+          autocomplete="current-password"
+          required
+        >
+
+
+        <!-- =====================================================
+             FORGOT PASSWORD
+        ====================================================== -->
+
+        <div class="forgot-password-row">
+
+          <button
+            type="button"
+            class="forgot-password-btn"
+            id="forgotPasswordBtn"
+          >
+            Forgot password?
+          </button>
+
+        </div>
+
+
+        <!-- =====================================================
+             LOGIN ERROR
+        ====================================================== -->
+
+        <div
+          id="loginError"
+          class="login-error"
+          role="alert"
+          aria-live="polite"
+        ></div>
+
+
+        <!-- LOGIN BUTTON -->
+
+        <button
+          class="primary-btn"
+          type="submit"
+        >
+          Continue
+        </button>
+
+
+        <!-- DEMO / ACCOUNT MESSAGE -->
+
+        <p class="demo-note">
+          Create an account first if you are a new user.
+        </p>
+
+
+        <!-- SIGNUP LINK -->
+
+        <p class="auth-switch">
+
+          New user?
+
+          <button
+            type="button"
+            class="text-btn inline-btn"
+            id="showSignup"
+          >
+            Create an account
+          </button>
+
+        </p>
+
+      </form>
+
+
+
+      <!-- =======================================================
+           SIGN UP FORM
+      ======================================================== -->
+
+      <form
+        id="signupForm"
+        class="auth-step"
+      >
+
+        <h2>
+          Create an account
+        </h2>
+
+        <p class="muted">
+          Register to start your legal journey.
+        </p>
+
+
+        <!-- FULL NAME -->
+
+        <label for="signupName">
+          Full name
+        </label>
+
+        <input
+          type="text"
+          id="signupName"
+          placeholder="Enter your full name"
+          autocomplete="name"
+          required
+        >
+
+
+        <!-- USERNAME -->
+
+        <label for="signupUsername">
+          Username
+        </label>
+
+        <input
+          type="text"
+          id="signupUsername"
+          placeholder="Create a username"
+          autocomplete="username"
+          required
+        >
+
+
+        <!-- REGISTERED MOBILE -->
+
+        <label for="signupPhone">
+          Registered mobile number
+        </label>
+
+        <input
+          type="tel"
+          id="signupPhone"
+          placeholder="Enter your 10-digit mobile number"
+          autocomplete="tel"
+          inputmode="numeric"
+          pattern="[6-9][0-9]{9}"
+          required
+        >
+
+
+        <!-- PASSWORD -->
+
+        <label for="signupPassword">
+          Password
+        </label>
+
+        <input
+          type="password"
+          id="signupPassword"
+          placeholder="Create a password"
+          autocomplete="new-password"
+          required
+        >
+
+
+        <!-- CONFIRM PASSWORD -->
+
+        <label for="signupConfirmPassword">
+          Confirm password
+        </label>
+
+        <input
+          type="password"
+          id="signupConfirmPassword"
+          placeholder="Confirm your password"
+          autocomplete="new-password"
+          required
+        >
+
+
+        <!-- SIGNUP ERROR -->
+
+        <div
+          id="signupError"
+          class="login-error"
+          role="alert"
+          aria-live="polite"
+        ></div>
+
+
+        <!-- CREATE ACCOUNT -->
+
+        <button
+          class="primary-btn"
+          type="submit"
+        >
+          Create Account
+        </button>
+
+
+        <!-- LOGIN LINK -->
+
+        <p class="auth-switch">
+
+          Already have an account?
+
+          <button
+            type="button"
+            class="text-btn inline-btn"
+            id="showLogin"
+          >
+            Login
+          </button>
+
+        </p>
+
+      </form>
+
+
+
+      <!-- =======================================================
+           SIGNUP OTP FORM
+      ======================================================== -->
+
+      <form
+        id="otpForm"
+        class="auth-step"
+      >
+
+        <h2>
+          Verify your phone
+        </h2>
+
+        <p class="muted">
+          A one-time password has been sent
+          to your registered number.
+        </p>
+
+
+        <!-- DEMO OTP -->
+
+        <div class="otp-demo">
+
+          Demo OTP:
+
+          <strong id="demoOtp"></strong>
+
+        </div>
+
+
+        <!-- OTP -->
+
+        <label for="otpInput">
+          Enter OTP
+        </label>
+
+        <input
+          type="text"
+          id="otpInput"
+          maxlength="6"
+          inputmode="numeric"
+          placeholder="Enter 6-digit OTP"
+          required
+        >
+
+
+        <!-- OTP ERROR -->
+
+        <div
+          id="otpError"
+          class="login-error"
+          role="alert"
+          aria-live="polite"
+        ></div>
+
+
+        <!-- VERIFY -->
+
+        <button
+          class="primary-btn"
+          type="submit"
+        >
+          Verify OTP
+        </button>
+
+
+        <!-- RESEND -->
+
+        <button
+          type="button"
+          class="text-btn"
+          id="resendOtp"
+        >
+          Resend OTP
+        </button>
+
+      </form>
+
+
+
+      <!-- =======================================================
+           PREFERENCES FORM
+      ======================================================== -->
+
+      <form
+        id="preferencesForm"
+        class="auth-step"
+      >
+
+        <h2>
+          Set your preferences
+        </h2>
+
+        <p class="muted">
+          This helps us personalize your experience.
+        </p>
+
+
+        <!-- LANGUAGE -->
+
+        <label for="language">
+          Preferred language
+        </label>
+
+        <select
+          id="language"
+          required
+        >
+
+          <option value="">
+            Select language
+          </option>
+
+          <option value="English">
+            English
+          </option>
+
+          <option value="Hindi">
+            हिंदी
+          </option>
+
+        </select>
+
+
+        <!-- LOCATION -->
+
+        <label>
+          Location method
+        </label>
+
+
+        <div class="location-buttons">
+
+          <button
+            type="button"
+            class="secondary-btn"
+            id="useGps"
+          >
+            📍 Use GPS
+          </button>
+
+
+          <button
+            type="button"
+            class="secondary-btn"
+            id="manualLocation"
+          >
+            ✍ Add manually
+          </button>
+
+        </div>
+
+
+        <!-- GPS MESSAGE -->
+
+        <p
+          id="gpsMessage"
+          class="success-message"
+        ></p>
+
+
+        <!-- LOCATION FIELDS -->
+
+        <div
+          id="locationFields"
+          class="hidden"
+        >
+
+          <!-- DISTRICT -->
+
+          <label for="district">
+            Maharashtra district
+          </label>
+
+          <select id="district">
+
+            <option value="">
+              Select district
+            </option>
+
+          </select>
+
+
+          <!-- LOCATION TYPE -->
+
+          <label for="localityType">
+            Location type
+          </label>
+
+          <select id="localityType">
+
+            <option value="">
+              Select type
+            </option>
+
+            <option value="Urban">
+              Urban - City / Town
+            </option>
+
+            <option value="Rural">
+              Rural - Village
+            </option>
+
+          </select>
+
+
+          <!-- CITY / VILLAGE -->
+
+          <label for="locality">
+            City or village
+          </label>
+
+          <input
+            type="text"
+            id="locality"
+            placeholder="Enter city, town, or village"
+          >
+
+        </div>
+
+
+        <!-- PREFERENCES ERROR -->
+
+        <div
+          id="preferencesError"
+          class="login-error"
+          role="alert"
+          aria-live="polite"
+        ></div>
+
+
+        <!-- DASHBOARD -->
+
+        <button
+          class="primary-btn"
+          type="submit"
+        >
+          Open Dashboard
+        </button>
+
+      </form>
+
+
+
+      <!-- =======================================================
+           FORGOT PASSWORD - STEP 1
+      ======================================================== -->
+
+      <form
+        id="forgotPasswordForm"
+        class="auth-step"
+      >
+
+        <h2>
+          Reset your password
+        </h2>
+
+        <p class="muted">
+          Enter your registered username or phone number
+          to reset your password.
+        </p>
+
+
+        <!-- USERNAME / PHONE -->
+
+        <label for="resetLoginId">
+          Username or phone number
+        </label>
+
+        <input
+          type="text"
+          id="resetLoginId"
+          placeholder="Enter username or phone number"
+          autocomplete="username"
+          required
+        >
+
+
+        <!-- RESET ACCOUNT ERROR -->
+
+        <div
+          id="resetAccountError"
+          class="login-error"
+          role="alert"
+          aria-live="polite"
+        ></div>
+
+
+        <!-- SEND OTP -->
+
+        <button
+          class="primary-btn"
+          type="submit"
+        >
+          Send OTP
+        </button>
+
+
+        <!-- BACK TO LOGIN -->
+
+        <p class="auth-switch">
+
+          Remember your password?
+
+          <button
+            type="button"
+            class="text-btn inline-btn"
+            id="backToLogin"
+          >
+            Login
+          </button>
+
+        </p>
+
+      </form>
+
+
+
+      <!-- =======================================================
+           FORGOT PASSWORD - STEP 2 OTP
+      ======================================================== -->
+
+      <form
+        id="resetOtpForm"
+        class="auth-step"
+      >
+
+        <h2>
+          Verify OTP
+        </h2>
+
+        <p class="muted">
+          Enter the OTP sent to your registered number.
+        </p>
+
+
+        <!-- DEMO RESET OTP -->
+
+        <div class="otp-demo">
+
+          Demo OTP:
+
+          <strong id="resetDemoOtp"></strong>
+
+        </div>
+
+
+        <!-- OTP -->
+
+        <label for="resetOtpInput">
+          Enter OTP
+        </label>
+
+        <input
+          type="text"
+          id="resetOtpInput"
+          maxlength="6"
+          inputmode="numeric"
+          placeholder="Enter 6-digit OTP"
+          required
+        >
+
+
+        <!-- RESET OTP ERROR -->
+
+        <div
+          id="resetOtpError"
+          class="login-error"
+          role="alert"
+          aria-live="polite"
+        ></div>
+
+
+        <!-- VERIFY OTP -->
+
+        <button
+          class="primary-btn"
+          type="submit"
+        >
+          Verify OTP
+        </button>
+
+
+        <!-- RESEND RESET OTP -->
+
+        <button
+          type="button"
+          class="text-btn"
+          id="resendResetOtp"
+        >
+          Resend OTP
+        </button>
+
+
+        <!-- BACK -->
+
+        <p class="auth-switch">
+
+          <button
+            type="button"
+            class="text-btn inline-btn"
+            id="backToForgotPassword"
+          >
+            ← Back
+          </button>
+
+        </p>
+
+      </form>
+
+
+
+      <!-- =======================================================
+           FORGOT PASSWORD - STEP 3 NEW PASSWORD
+      ======================================================== -->
+
+      <form
+        id="resetPasswordForm"
+        class="auth-step"
+      >
+
+        <h2>
+          Create new password
+        </h2>
+
+        <p class="muted">
+          Enter and confirm your new password.
+        </p>
+
+
+        <!-- NEW PASSWORD -->
+
+        <label for="newPassword">
+          New password
+        </label>
+
+        <input
+          type="password"
+          id="newPassword"
+          placeholder="Enter new password"
+          autocomplete="new-password"
+          required
+        >
+
+
+        <!-- CONFIRM PASSWORD -->
+
+        <label for="confirmNewPassword">
+          Confirm new password
+        </label>
+
+        <input
+          type="password"
+          id="confirmNewPassword"
+          placeholder="Confirm new password"
+          autocomplete="new-password"
+          required
+        >
+
+
+        <!-- PASSWORD ERROR -->
+
+        <div
+          id="newPasswordError"
+          class="login-error"
+          role="alert"
+          aria-live="polite"
+        ></div>
+
+
+        <!-- RESET PASSWORD -->
+
+        <button
+          class="primary-btn"
+          type="submit"
+        >
+          Reset Password
+        </button>
+
+      </form>
+
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+  ========================================================== -->
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  <script src="language.js"></script>
+
+
+</body>
+
+</html>

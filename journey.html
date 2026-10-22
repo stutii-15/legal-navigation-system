@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>My Legal Journey</title>
+
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <header class="topbar">
+
+    <a
+      href="dashboard.html"
+      class="logo"
+    >
+
+      <span class="logo-mark">
+        ⚖
+      </span>
+
+      <span>
+        Legal Navigation System
+      </span>
+
+    </a>
+
+
+    <nav class="navbar">
+
+      <a href="documents.html">
+        Legal Document Procedures
+      </a>
+
+      <a href="queries.html">
+        Case Related Queries
+      </a>
+
+      <a href="lawyers.html">
+        Lawyer Consultation
+      </a>
+
+      <a
+        href="journey.html"
+        class="active"
+      >
+        My Legal Journey
+      </a>
+
+    </nav>
+
+
+    
+<div class="top-actions settings-menu">
+  <button
+    type="button"
+    id="settingsMenuButton"
+    class="settings-menu-button"
+    aria-expanded="false"
+    aria-controls="settingsDropdown">
+    ⚙ Settings ▾
+  </button>
+
+  <div id="settingsDropdown" class="settings-dropdown" hidden>
+    <div class="settings-language">
+      <label>Language</label>
+      <div id="googleTranslateSlot"></div>
+    </div>
+
+    <button type="button" class="settings-action" data-theme-toggle>
+      ☾ Dark / Light Mode
+    </button>
+
+    <button type="button" class="settings-action" data-logout>
+      ↪ Log out
+    </button>
+  </div>
+</div>
+
+
+  </header>
+
+
+  <main class="page-container">
+
+
+    <section class="hero">
+
+      <h1>
+        My Legal Journey
+      </h1>
+
+      <p>
+        Review your profile, case progress,
+        saved queries, and activity history.
+      </p>
+
+    </section>
+
+
+    <!-- STATISTICS -->
+
+    <section class="stats-grid">
+
+      <div class="stat-card">
+
+        <small>
+          Profile completion
+        </small>
+
+        <strong id="profileProgress">
+          30%
+        </strong>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <small>
+          Case progress
+        </small>
+
+        <strong id="caseProgressText">
+          0% completed
+        </strong>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <small>
+          Current location
+        </small>
+
+        <strong data-user-location>
+          Not available
+        </strong>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROGRESS -->
+
+    <section class="panel">
+
+      <h2>
+        Case progress
+      </h2>
+
+
+      <div class="progress-container">
+
+        <div
+          class="progress-bar"
+          id="caseProgressBar"
+          style="width: 0%"
+        ></div>
+
+      </div>
+
+
+      <p class="muted">
+
+        Progress changes when you save
+        a case query in this prototype.
+
+      </p>
+
+    </section>
+
+
+    <!-- TWO COLUMNS -->
+
+    <section class="two-column">
+
+
+      <div class="panel">
+
+        <h2>
+          User information
+        </h2>
+
+        <p>
+
+          <strong>
+            Username:
+          </strong>
+
+          <span data-user-name></span>
+
+        </p>
+
+
+        <p>
+
+          <strong>
+            Location:
+          </strong>
+
+          <span data-user-location></span>
+
+        </p>
+
+
+        <p>
+
+          <strong>
+            Language:
+          </strong>
+
+          <span id="languageValue">
+            English
+          </span>
+
+        </p>
+
+      </div>
+
+
+      <div class="panel">
+
+        <h2>
+          Settings
+        </h2>
+
+
+        <label
+          class="settings-language-label"
+          for="language"
+        >
+          Switch language
+        </label>
+
+        <select
+          id="language"
+          class="settings-language-select"
+          aria-label="Switch language"
+        >
+          <option value="English">English</option>
+          <option value="Hindi">हिंदी</option>
+        </select>
+
+
+        <button
+          class="secondary-btn"
+          id="helpButton"
+        >
+          Help
+        </button>
+
+
+        <button
+          class="secondary-btn"
+          data-theme-toggle
+        >
+          Dark / Light Mode
+        </button>
+
+
+        <button
+          class="secondary-btn"
+          data-logout
+        >
+          Log out
+        </button>
+
+      </div>
+
+
+    </section>
+
+
+    <!-- HISTORY -->
+
+    <section class="panel">
+
+      <h2>
+        Activity history
+      </h2>
+
+      <div id="historyContainer"></div>
+
+    </section>
+
+  </main>
+
+
+  <!-- CHATBOT -->
+
+  <button
+    class="chatbot-toggle"
+    id="chatbotToggle"
+  >
+    💬
+  </button>
+
+
+  <section
+    class="chatbot-window"
+    id="chatbotWindow"
+  >
+
+    <div class="chat-header">
+
+      <strong>
+        AI Legal Assistant
+      </strong>
+
+      <button id="chatbotClose">
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      class="chat-messages"
+      id="chatMessages"
+    >
+
+      <div class="message bot">
+
+        Ask a question about your legal
+        journey or general legal information.
+
+      </div>
+
+    </div>
+
+
+    <div class="chat-input">
+
+      <input
+        id="chatInput"
+        placeholder="Ask a legal question..."
+      >
+
+      <button
+        class="primary-btn"
+        id="chatSend"
+      >
+        Send
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  <script src="language.js"></script>
+
+
+  <script>
+
+    const user =
+      JSON.parse(
+        localStorage.getItem(
+          "legalUser"
+        ) || "{}"
+      );
+
+
+    const language =
+      document.getElementById(
+        "languageValue"
+      );
+
+
+    if (language) {
+
+      language.textContent =
+        user.language ||
+        "English";
+
+    }
+
+  </script>
+
+</body>
+
+</html>
